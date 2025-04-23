@@ -1,12 +1,11 @@
 import { useState } from "react";
+import ControlsPanel from "./components/ControlsPanel";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <h1>{count}</h1>
-      <button onClick={() => setCount((count) => count + 1)}>Click</button>
+      <h1>Cihuytyt</h1>
+      {/* <ControlsPanel /> */}
     </>
   );
 }
