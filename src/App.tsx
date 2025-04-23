@@ -1,6 +1,3 @@
-import { useState } from "react";
-import ControlsPanel from "./components/ControlsPanel";
-
 function App() {
   return (
     <>

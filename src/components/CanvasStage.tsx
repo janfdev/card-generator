@@ -1,5 +1,5 @@
 import React from "react";
-import { CardData } from "../types/CardTypes";
+import { CardData } from "../types/cardTypes";
 import useImage from "use-image";
 import { Stage, Layer, Rect, Text, Image } from "react-konva";
 

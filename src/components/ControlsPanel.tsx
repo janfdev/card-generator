@@ -1,5 +1,5 @@
 import React from "react";
-import { CardData } from "../types/CardTypes";
+import { CardData } from "../types/cardTypes";
 
 interface ControlsPanelProps {
   cardData: CardData;
