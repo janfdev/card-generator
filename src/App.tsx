@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import CanvasStage from "./components/CanvasStage";
 import ControlsPanel from "./components/ControlsPanel";
-import { CardData } from "./types/cardTypes";
+import { CardData } from "./types/types";
 import Footer from "./components/Footer";
 
 const App: React.FC = () => {
@@ -22,15 +22,15 @@ const App: React.FC = () => {
 
     const readerPhoto = new FileReader();
     readerPhoto.onload = () => {
-      setCardData((prev) => ({ ...prev, photo: readerPhoto.result as string }));
+      const photoUrl = readerPhoto.result as string;
+      setCardData((prev) => ({ ...prev, photo: photoUrl }));
     };
-    readerPhoto.readAsDataURL(file);
   };
   return (
     <>
-      <section className="container flex gap-5 flex-col h-[70vh] items-center justify-center mx-auto px-4">
-        <h1 className="text-3xl">Card Generator</h1>
-        <div className="flex md:flex-row flex-col items-center gap-4 px-4">
+      <section className="container flex flex-col h-screen gap-10 items-center justify-center mx-auto px-4 ">
+        <h1 className="text-3xl mb-6 md:mb-0">Card Generator</h1>
+        <div className="flex flex-col items-stretch gap-4 md:flex-row md:items-start md:gap-8">
           <ControlsPanel
             cardData={cardData}
             onChange={handleChange}
