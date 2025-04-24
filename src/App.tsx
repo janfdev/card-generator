@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
 import CanvasStage from "./components/CanvasStage";
 import ControlsPanel from "./components/ControlsPanel";
 import { CardData } from "./types/types";
@@ -9,10 +9,14 @@ const App: React.FC = () => {
     name: "",
     title: "",
     photo: "",
-    backgroundColor: "#000000"
+    backgroundColor: "#000000",
+    backgroundType: "solid",
+    description: "",
+    badges: [],
+    socialLinks: []
   });
 
-  const handleChange = (field: keyof CardData, value: string) => {
+  const handleChange = (field: keyof CardData, value: ReactNode) => {
     setCardData((prev) => ({ ...prev, [field]: value }));
   };
 

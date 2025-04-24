@@ -22,7 +22,7 @@ const ControlsPanel: React.FC<ControlsPanelProps> = ({
     "PHP",
     "Laravel"
   ];
-  const allSocials = ["LinkedIn", "Instagram", "Github"];
+  const allSocials = ["Linkedin", "Instagram", "Github"];
   return (
     <div className="flex overflow-y-auto flex-col gap-3 p-4 bg-gray-100 rounded-xl max-w-md w-full">
       <input
