@@ -10,7 +10,7 @@ interface ControlsPanelProps {
 const ControlsPanel: React.FC<ControlsPanelProps> = ({
   cardData,
   onChange,
-  onUploadPhoto,
+  onUploadPhoto
 }) => {
   return (
     <div className="p-4 bg-gray-100">
