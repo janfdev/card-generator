@@ -5,10 +5,10 @@ import { CardData } from "./types/cardTypes";
 
 const App: React.FC = () => {
   const [cardData, setCardData] = useState<CardData>({
-    name: "Nama Saya",
-    title: "Posisi",
+    name: "John Doe",
+    title: "Software Engineer",
     photo: "",
-    backgroundColor: "#1e40af",
+    backgroundColor: "#000000"
   });
 
   const handleChange = (field: keyof CardData, value: string) => {
@@ -19,22 +19,24 @@ const App: React.FC = () => {
     const file = e.target.files?.[0];
     if (!file) return;
 
-    const reader = new FileReader();
-    reader.onload = () => {
-      setCardData((prev) => ({ ...prev, photo: reader.result as string }));
+    const readerPhoto = new FileReader();
+    readerPhoto.onload = () => {
+      setCardData((prev) => ({ ...prev, photo: readerPhoto.result as string }));
     };
-    reader.readAsDataURL(file);
+    readerPhoto.readAsDataURL(file);
   };
-
   return (
-    <div>
-      <ControlsPanel
-        cardData={cardData}
-        onChange={handleChange}
-        onUploadPhoto={handlePhotoUpload}
-      />
-      <CanvasStage cardData={cardData} />
-    </div>
+    <section className="container flex gap-5 flex-col h-[70vh] items-center justify-center mx-auto px-4">
+      <h1 className="text-3xl">Card Generator</h1>
+      <div className="flex md:flex-row flex-col items-center gap-4 px-4">
+        <ControlsPanel
+          cardData={cardData}
+          onChange={handleChange}
+          onUploadPhoto={handlePhotoUpload}
+        />
+        <CanvasStage cardData={cardData} />
+      </div>
+    </section>
   );
 };
 
