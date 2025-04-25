@@ -3,15 +3,15 @@ import { CardData, TechStack, SocialMedia } from "../types/types";
 
 interface Props {
   onChange: (data: CardData) => void;
+  onUploadPhoto: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const ControlsPanel: React.FC<Props> = ({ onChange }) => {
+const ControlsPanel: React.FC<Props> = ({ onChange, onUploadPhoto }) => {
   const [form, setForm] = useState<CardData>({
     name: "Fauzan Milion",
     jobTitle: "FullStack Developer",
-    description: "A kiddo who uses Bootstrap and Laravel in web developer",
+    description: "",
     avatarUrl: "/src/assets/foto.jpeg",
-    initials: "FM",
     techStack: ["Python", "Typescript", "Javascript", "Laravel"],
     socialMedia: ["Linkedin", "Instagram", "Github"],
   });
@@ -21,8 +21,9 @@ const ControlsPanel: React.FC<Props> = ({ onChange }) => {
     setForm(updated);
     onChange(updated);
   };
+
   return (
-    <div>
+    <div className="flex flex-col w-full gap-1">
       <input
         type="text"
         className="block w-full mb-2 p-2 border rounded"
@@ -41,12 +42,16 @@ const ControlsPanel: React.FC<Props> = ({ onChange }) => {
         placeholder="description"
         onChange={(e) => handleChange("description", e.target.value)}
       />
-      <input
-        className="block w-full mb-2 p-2 border rounded"
-        placeholder="Avatar URL"
-        value={form.avatarUrl}
-        onChange={(e) => handleChange("avatarUrl", e.target.value)}
-      />
+      <div className="grid w-full max-w-xs items-center gap-1.5 mb-5">
+        <label className="text-sm text-gray-400 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+          Picture
+        </label>
+        <input
+          type="file"
+          className="flex h-10 w-full rounded-md border border-input bg-white px-3 py-2 text-sm text-gray-400 file:border-0 file:bg-transparent file:text-gray-600 file:text-sm file:font-medium"
+          onChange={onUploadPhoto}
+        />
+      </div>
       <div className="flex flex-wrap gap-2 mb-2">
         {(["Python", "Typescript", "Javascript", "Laravel"] as TechStack[]).map(
           (tech) => (

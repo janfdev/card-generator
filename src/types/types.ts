@@ -6,7 +6,6 @@ export interface CardData {
   jobTitle: string;
   description: string;
   avatarUrl: string;
-  initials: string;
   techStack: TechStack[];
   socialMedia: SocialMedia[];
 }

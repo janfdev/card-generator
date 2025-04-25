@@ -42,15 +42,23 @@ const CardPreview: React.FC<Props> = ({ data, cardRef }) => {
       console.error("Export failed: ", error);
     }
   };
+
+  const getInitials = (name: string) => {
+    return name
+      .split(" ")
+      .slice(0, 2)
+      .map((n) => n[0].toUpperCase())
+      .join("");
+  };
   return (
     <section className="flex flex-col ">
       <div
         ref={cardRef}
-        className="max-w-sm mx-auto bg-white isolation-auto rounded-2xl shadow-xl p-6 text-center relative"
+        className="w-md max-w-md mx-auto bg-white isolation-auto rounded-2xl shadow-xl p-6 text-center relative"
       >
         <div className="absolute top-4 left-4">
-          <div className="bg-[#2c2a59] text-white font-bold rounded-full w-6 h-6 flex items-center justify-center text-xs">
-            {data.initials}
+          <div className="bg-[#2c2a59] capitalize text-white font-bold rounded-full w-6 h-6 flex items-center justify-center text-xs">
+            {getInitials(data.name)}
           </div>
         </div>
 
@@ -64,9 +72,15 @@ const CardPreview: React.FC<Props> = ({ data, cardRef }) => {
           />
         </div>
 
-        <h2 className="text-xl font-semibold text-gray-800">{data.name}</h2>
-        <p className="text-sm text-indigo-700 mb-2">{data.jobTitle}</p>
-        <p className="text-gray-600 text-sm mb-4">{data.description}</p>
+        <h2 className="text-xl font-semibold text-gray-800 capitalize">
+          {data.name}
+        </h2>
+        <p className="text-sm text-indigo-700 mb-2 capitalize">
+          {data.jobTitle}
+        </p>
+        <p className="text-gray-600 text-sm mb-4 capitalize">
+          {data.description}
+        </p>
 
         <div className="flex flex-col gap-4">
           <h1 className="text-left text-sm text-gray-700">Tech Stack :</h1>
