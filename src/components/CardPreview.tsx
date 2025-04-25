@@ -47,7 +47,7 @@ const CardPreview: React.FC<Props> = ({ data, cardRef }) => {
     return name
       .split(" ")
       .slice(0, 2)
-      .map((n) => n[0].toUpperCase())
+      .map((n) => n[0])
       .join("");
   };
   return (
@@ -57,7 +57,7 @@ const CardPreview: React.FC<Props> = ({ data, cardRef }) => {
         className="w-md max-w-md mx-auto bg-white isolation-auto rounded-2xl shadow-xl p-6 text-center relative"
       >
         <div className="absolute top-4 left-4">
-          <div className="bg-[#2c2a59] capitalize text-white font-bold rounded-full w-6 h-6 flex items-center justify-center text-xs">
+          <div className="bg-[#2c2a59] uppercase text-white font-bold rounded-full w-6 h-6 flex items-center justify-center text-xs">
             {getInitials(data.name)}
           </div>
         </div>
@@ -87,7 +87,9 @@ const CardPreview: React.FC<Props> = ({ data, cardRef }) => {
 
           <div className="mb-4 flex items-center justify-center gap-4">
             {data.techStack.map((tech) => (
-              <div key={tech}>{iconMap[tech]}</div>
+              <div className="shadow-lg p-2" key={tech}>
+                {iconMap[tech]}
+              </div>
             ))}
           </div>
         </div>
@@ -96,14 +98,14 @@ const CardPreview: React.FC<Props> = ({ data, cardRef }) => {
           <h1 className="text-left text-sm text-gray-700">Social Media : </h1>
           <div className="mb-4 flex items-center justify-center gap-4">
             {data.socialMedia.map((social) => (
-              <div key={social}>{iconMap[social]}</div>
+              <div className="shadow-lg p-2" key={social}>{iconMap[social]}</div>
             ))}
           </div>
         </div>
       </div>
       <button
         onClick={handleExportCard}
-        className="mt-4 px-4 py-2 bg-green-600 text-white rounded"
+        className="mt-4 px-4 py-2 cursor-pointer bg-green-600 text-white rounded"
       >
         Export as Image
       </button>

@@ -5,15 +5,16 @@ import { CardData } from "./types/types";
 
 const App: React.FC = () => {
   const [cardData, setCardData] = useState<CardData>({
-    name: "Rizqi Noor Fauzan",
-    jobTitle: "Software Engineering",
+    name: "",
+    jobTitle: "",
     description: "",
-    avatarUrl: "/src/assets/foto.jpeg",
-    techStack: ["Python", "Laravel", "Typescript", "Javascript"],
-    socialMedia: ["Linkedin", "Instagram", "Github"],
+    avatarUrl: "",
+    techStack: [],
+    socialMedia: [],
   });
 
   const cardRef = useRef<HTMLDivElement>(null!);
+
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
@@ -27,7 +28,11 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 p-4">
-      <ControlsPanel onChange={setCardData} onUploadPhoto={handleFileChange} />
+      <ControlsPanel
+        data={cardData}
+        onChange={setCardData}
+        onUploadPhoto={handleFileChange}
+      />
       <div className="flex justify-center">
         <CardPreview data={cardData} cardRef={cardRef} />
       </div>
