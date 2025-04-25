@@ -1,7 +1,6 @@
 import React from "react";
 import { CardData, TechStack, SocialMedia } from "../types/types";
 import Select from "react-select";
-import chroma from "chroma-js";
 
 interface Props {
   data: CardData;
