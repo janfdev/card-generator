@@ -1,6 +1,7 @@
 import React from "react";
 import { CardData, TechStack, SocialMedia } from "../types/types";
 import Select from "react-select";
+import chroma from "chroma-js";
 
 interface Props {
   data: CardData;
@@ -15,20 +16,15 @@ const techStackOptions = [
   { value: "Laravel", label: "Laravel" },
 ];
 
+const socialMediaOptions = [
+  { value: "Linkedin", label: "Linkedin" },
+  { value: "Instagram", label: "Instagram" },
+  { value: "Github", label: "Github" },
+];
+
 const ControlsPanel: React.FC<Props> = ({ data, onChange, onUploadPhoto }) => {
   const handleFieldChange = (field: keyof CardData, value: any) => {
     onChange({ ...data, [field]: value });
-  };
-
-  const toggleArrayItem = (
-    field: "techStack" | "socialMedia",
-    item: TechStack | SocialMedia
-  ) => {
-    const array = data[field] as (TechStack | SocialMedia)[];
-    const newArray = array.includes(item)
-      ? array.filter((i) => i !== item)
-      : [...array, item];
-    handleFieldChange(field, newArray);
   };
 
   return (
@@ -54,7 +50,7 @@ const ControlsPanel: React.FC<Props> = ({ data, onChange, onUploadPhoto }) => {
       />
       <div className="grid w-full max-w-xs items-center gap-1.5 mb-5">
         <label className="text-sm text-gray-400 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-          Picture
+          Choose your profile picture
         </label>
         <input
           type="file"
@@ -79,7 +75,19 @@ const ControlsPanel: React.FC<Props> = ({ data, onChange, onUploadPhoto }) => {
         classNamePrefix={"react-select"}
       />
       <h3 className="text-lg">Social Media : </h3>
-      <Select />
+      <Select
+        isMulti
+        options={socialMediaOptions}
+        value={socialMediaOptions.filter((option) =>
+          data.socialMedia.includes(option.value as SocialMedia)
+        )}
+        onChange={(selected) => {
+          handleFieldChange(
+            "socialMedia",
+            selected.map((item) => item.value as SocialMedia)
+          );
+        }}
+      />
     </div>
   );
 };
