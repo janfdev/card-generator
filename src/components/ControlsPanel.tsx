@@ -26,16 +26,73 @@ const ControlsPanel: React.FC<Props> = ({ onChange }) => {
       <input
         type="text"
         className="block w-full mb-2 p-2 border rounded"
-        placeholder="Input Your Name"
+        placeholder="Input your name"
         onChange={(e) => handleChange("name", e.target.value)}
       />
       <input
         type="text"
-        placeholder="Input Your Job"
+        placeholder="Input your job"
         className="block w-full mb-2 p-2 border rounded"
         onChange={(e) => handleChange("jobTitle", e.target.value)}
       />
-      <input type="text" />
+      <input
+        type="text"
+        className="block w-full mb-2 p-2 border rounded"
+        placeholder="description"
+        onChange={(e) => handleChange("description", e.target.value)}
+      />
+      <input
+        className="block w-full mb-2 p-2 border rounded"
+        placeholder="Avatar URL"
+        value={form.avatarUrl}
+        onChange={(e) => handleChange("avatarUrl", e.target.value)}
+      />
+      <div className="flex flex-wrap gap-2 mb-2">
+        {(["Python", "Typescript", "Javascript", "Laravel"] as TechStack[]).map(
+          (tech) => (
+            <button
+              key={tech}
+              onClick={() =>
+                handleChange(
+                  "techStack",
+                  form.techStack.includes(tech)
+                    ? form.techStack.filter((t) => t !== tech)
+                    : [...form.techStack, tech]
+                )
+              }
+              className={`px-2 py-1 rounded ${
+                form.techStack.includes(tech)
+                  ? "bg-indigo-500 text-white"
+                  : "bg-gray-200"
+              }`}
+            >
+              {tech}
+            </button>
+          )
+        )}
+      </div>
+      <div className="flex flex-wrap gap-2">
+        {(["Linkedin", "Instagram", "Github"] as SocialMedia[]).map((media) => (
+          <button
+            key={media}
+            onClick={() =>
+              handleChange(
+                "socialMedia",
+                form.socialMedia.includes(media)
+                  ? form.socialMedia.filter((m) => m !== media)
+                  : [...form.socialMedia, media]
+              )
+            }
+            className={`px-2 py-1 rounded ${
+              form.socialMedia.includes(media)
+                ? "bg-indigo-500 text-white"
+                : "bg-gray-200"
+            }`}
+          >
+            {media}
+          </button>
+        ))}
+      </div>
     </div>
   );
 };
