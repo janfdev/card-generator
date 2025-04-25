@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react";
 import CardPreview from "./components/CardPreview";
 import ControlsPanel from "./components/ControlsPanel";
-import ExportButton from "./components/ExportButton";
 import { CardData } from "./types/types";
 
 const App: React.FC = () => {
@@ -22,9 +21,6 @@ const App: React.FC = () => {
       <ControlsPanel onChange={setCardData} />
       <div className="flex justify-center">
         <CardPreview data={cardData} cardRef={cardRef} />
-      </div>
-      <div className="text-center">
-        <ExportButton cardRef={cardRef} />
       </div>
     </div>
   );
