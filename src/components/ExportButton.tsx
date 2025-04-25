@@ -8,11 +8,22 @@ interface Props {
 const ExportButton: React.FC<Props> = ({ cardRef }) => {
   const handleExportCard = async () => {
     if (!cardRef.current) return;
-    const dataUrl = await toPng(cardRef.current);
-    const link = document.createElement("a");
-    link.download = "profile-card.png";
-    link.href = dataUrl;
-    link.click();
+    const node = cardRef.current;
+
+    try {
+      const dataUrl = await toPng(node, {
+        cacheBust: true,
+        backgroundColor: "#ffffff",
+        width: node.offsetWidth,
+        height: node.offsetHeight,
+      });
+      const link = document.createElement("a");
+      link.download = "profile-card.png";
+      link.href = dataUrl;
+      link.click();
+    } catch (error) {
+      console.error("Export failed: ", error);
+    }
   };
   return (
     <button

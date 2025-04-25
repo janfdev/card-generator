@@ -18,14 +18,14 @@ const iconMap = {
   Laravel: <FaLaravel className="text-red-400" />,
   Linkedin: <RxLinkedinLogo className="text-blue-500 text-xl" />,
   Instagram: <FaInstagram className="text-xl" />,
-  Github: <VscGithubInverted className="text-xl text-black" />
+  Github: <VscGithubInverted className="text-xl text-black" />,
 };
 
 const CardPreview: React.FC<Props> = ({ data, cardRef }) => {
   return (
     <div
       ref={cardRef}
-      className="max-w-sm mx-auto bg-white rounded-2xl shadow-xl p-6 text-center relative"
+      className="max-w-sm mx-auto bg-white isolation-auto rounded-2xl shadow-xl p-6 text-center relative"
     >
       <div className="absolute top-4 left-4">
         <div className="bg-[#2c2a59] text-white font-bold rounded-full w-6 h-6 flex items-center justify-center text-xs">
