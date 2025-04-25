@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import CardPreview from "./components/CardPreview";
 import ControlsPanel from "./components/ControlsPanel";
 import { CardData } from "./types/types";
+import Footer from "./components/Footer";
 
 const App: React.FC = () => {
   const [cardData, setCardData] = useState<CardData>({
@@ -27,15 +28,16 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4">
+    <div className="min-h-screen flex flex-col bg-gray-50 p-5">
       <ControlsPanel
         data={cardData}
         onChange={setCardData}
         onUploadPhoto={handleFileChange}
       />
-      <div className="flex justify-center">
+      <div className="flex flex-col justify-center items-center">
         <CardPreview data={cardData} cardRef={cardRef} />
       </div>
+      <Footer />
     </div>
   );
 };

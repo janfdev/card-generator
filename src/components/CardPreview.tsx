@@ -51,7 +51,7 @@ const CardPreview: React.FC<Props> = ({ data, cardRef }) => {
       .join("");
   };
   return (
-    <section className="flex flex-col ">
+    <section className="flex flex-col mt-5">
       <div
         ref={cardRef}
         className="w-md max-w-md mx-auto bg-white isolation-auto rounded-2xl shadow-xl p-6 text-center relative"
@@ -98,14 +98,16 @@ const CardPreview: React.FC<Props> = ({ data, cardRef }) => {
           <h1 className="text-left text-sm text-gray-700">Social Media : </h1>
           <div className="mb-4 flex items-center justify-center gap-4">
             {data.socialMedia.map((social) => (
-              <div className="shadow-lg p-2" key={social}>{iconMap[social]}</div>
+              <div className="shadow-lg p-2" key={social}>
+                {iconMap[social]}
+              </div>
             ))}
           </div>
         </div>
       </div>
       <button
         onClick={handleExportCard}
-        className="mt-4 px-4 py-2 cursor-pointer bg-green-600 text-white rounded"
+        className="mt-4  px-4 py-2 cursor-pointer bg-green-600 text-white rounded"
       >
         Export as Image
       </button>

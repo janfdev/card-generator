@@ -47,7 +47,7 @@ const ControlsPanel: React.FC<Props> = ({ data, onChange, onUploadPhoto }) => {
         placeholder="description"
         onChange={(e) => handleFieldChange("description", e.target.value)}
       />
-      <div className="grid w-full max-w-xs items-center gap-1.5 mb-5">
+      <div className="grid w-full max-w-xs items-center gap-1.5 mb-2">
         <label className="text-sm text-gray-400 font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
           Choose your profile picture
         </label>
