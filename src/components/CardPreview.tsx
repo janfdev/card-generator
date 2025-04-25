@@ -51,7 +51,7 @@ const CardPreview: React.FC<Props> = ({ data, cardRef }) => {
       .join("");
   };
   return (
-    <section className="flex flex-col mt-5">
+    <section className="flex flex-col mt-5 ">
       <div
         ref={cardRef}
         className="w-md max-w-md mx-auto bg-white isolation-auto rounded-2xl shadow-xl p-6 text-center relative"
