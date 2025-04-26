@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { MotionStyle, Variants, Transition } from "framer-motion";
 
@@ -24,7 +24,7 @@ const Blob = ({
   zIndex = 0,
   initialPosition = { x: 50, y: 50 },
   pulseScale = 1.1,
-  rotationSpeed = 10,
+  // rotationSpeed = 10,
   gradientColors,
 }: BlobProps) => {
   const [isHovered, setIsHovered] = useState(false);
