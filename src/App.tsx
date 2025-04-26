@@ -94,8 +94,11 @@ const App: React.FC = () => {
           </div>
         </div>
       </div>
+      <div className="md:block hidden">
+        <Footer />
+      </div>
 
-      <div className="relative w-full h-[30%] bg-black">
+      <div className="relative md:hidden w-full h-[30%] bg-black">
         <BlobBackground blobs={customBlobs} />
         <Footer />
       </div>
