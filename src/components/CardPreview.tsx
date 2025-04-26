@@ -107,7 +107,7 @@ const CardPreview: React.FC<Props> = ({ data, cardRef }) => {
       </div>
       <button
         onClick={handleExportCard}
-        className="mt-4  px-4 py-2 cursor-pointer bg-green-600 text-white rounded"
+        className="mt-4 px-4 py-3 cursor-pointer bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white rounded-md"
       >
         Export as Image
       </button>

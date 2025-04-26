@@ -27,68 +27,94 @@ const ControlsPanel: React.FC<Props> = ({ data, onChange, onUploadPhoto }) => {
   };
 
   return (
-    <div className="flex flex-col w-full gap-1 ">
-      <input
-        type="text"
-        className="w-full mb-2 p-2 border text-white border-white rounded"
-        placeholder="Input your name"
-        onChange={(e) => handleFieldChange("name", e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Input your job"
-        value={data.jobTitle}
-        className="w-full mb-2 text-white p-2 border border-white rounded"
-        onChange={(e) => handleFieldChange("jobTitle", e.target.value)}
-      />
-      <input
-        type="text"
-        className="w-full mb-2 text-white p-2 border rounded"
-        placeholder="description"
-        onChange={(e) => handleFieldChange("description", e.target.value)}
-      />
-      <div className="grid w-full max-w-xs items-center gap-1.5 mb-2">
-        <label className="text-sm text-white font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-          Choose your profile picture
+    <div className="flex flex-col w-full gap-4">
+      {/* Name Input */}
+      <div className="flex flex-col gap-1">
+        <label className="text-sm font-medium text-white">Name</label>
+        <input
+          type="text"
+          className="w-full p-2 border border-white text-white rounded"
+          placeholder="Input your name"
+          value={data.name}
+          onChange={(e) => handleFieldChange("name", e.target.value)}
+        />
+      </div>
+
+      {/* Job Title Input */}
+      <div className="flex flex-col gap-1">
+        <label className="text-sm font-medium text-white">Job Title</label>
+        <input
+          type="text"
+          placeholder="Input your job"
+          value={data.jobTitle}
+          className="w-full p-2 border border-white text-white rounded"
+          onChange={(e) => handleFieldChange("jobTitle", e.target.value)}
+        />
+      </div>
+
+      {/* Description Input */}
+      <div className="flex flex-col gap-1">
+        <label className="text-sm font-medium text-white">Description</label>
+        <input
+          type="text"
+          className="w-full p-2 border border-white text-white rounded"
+          placeholder="Input a short description"
+          value={data.description}
+          onChange={(e) => handleFieldChange("description", e.target.value)}
+        />
+      </div>
+
+      {/* Upload Photo */}
+      <div className="flex flex-col gap-1">
+        <label className="text-sm font-medium text-white">
+          Profile Picture
         </label>
         <input
           type="file"
-          className="flex h-10 w-full rounded-md border  border-input bg-white px-3 py-2 text-sm text-gray-400 file:border-0 file:bg-transparent file:text-gray-600 file:text-sm file:font-medium"
+          className="flex h-10 w-full rounded-md border border-input bg-white px-3 py-2 text-sm text-gray-400 file:border-0 file:bg-transparent file:text-gray-600 file:text-sm file:font-medium"
           onChange={onUploadPhoto}
         />
       </div>
-      <h3 className="text-lg text-white">Tech Stack : </h3>
-      <Select
-        isMulti
-        options={techStackOptions}
-        value={techStackOptions.filter((option) =>
-          data.techStack.includes(option.value as TechStack)
-        )}
-        onChange={(selected) => {
-          handleFieldChange(
-            "techStack",
-            selected.map((item) => item.value as TechStack)
-          );
-        }}
-        className="mb-4 text-black"
-        classNamePrefix={"react-select"}
-      />
-      <h3 className="text-lg text-white">Social Media : </h3>
-      <Select
-        isMulti
-        options={socialMediaOptions}
-        value={socialMediaOptions.filter((option) =>
-          data.socialMedia.includes(option.value as SocialMedia)
-        )}
-        onChange={(selected) => {
-          handleFieldChange(
-            "socialMedia",
-            selected.map((item) => item.value as SocialMedia)
-          );
-        }}
-        className="mb-4 text-black"
-        classNamePrefix={"react-select"}
-      />
+
+      {/* Tech Stack Select */}
+      <div className="flex flex-col gap-1">
+        <label className="text-sm font-medium text-white">Tech Stack</label>
+        <Select
+          isMulti
+          options={techStackOptions}
+          value={techStackOptions.filter((option) =>
+            data.techStack.includes(option.value as TechStack)
+          )}
+          onChange={(selected) => {
+            handleFieldChange(
+              "techStack",
+              selected.map((item) => item.value as TechStack)
+            );
+          }}
+          className="text-black"
+          classNamePrefix={"react-select"}
+        />
+      </div>
+
+      {/* Social Media Select */}
+      <div className="flex flex-col gap-1">
+        <label className="text-sm font-medium text-white">Social Media</label>
+        <Select
+          isMulti
+          options={socialMediaOptions}
+          value={socialMediaOptions.filter((option) =>
+            data.socialMedia.includes(option.value as SocialMedia)
+          )}
+          onChange={(selected) => {
+            handleFieldChange(
+              "socialMedia",
+              selected.map((item) => item.value as SocialMedia)
+            );
+          }}
+          className="text-black"
+          classNamePrefix={"react-select"}
+        />
+      </div>
     </div>
   );
 };
