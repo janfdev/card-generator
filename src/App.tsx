@@ -71,17 +71,16 @@ const App: React.FC = () => {
     reader.readAsDataURL(file);
   };
 
-  <></>;
   return (
-    <div className="relative h-screen w-full bg-black">
+    <section className="relative h-screen w-full bg-black">
       <BlobBackground blobs={customBlobs} />
 
       <div className="absolute inset-0 z-10 flex flex-col gap-20 w-full h-full justify-center">
-        <div className="z-10 md:px-[100px] px-5 -mt-[120px]">
+        <div className="z-10 md:px-[100px] sticky top-0 px-5 md:-mt-[120px] ">
           <Navbar />
         </div>
 
-        <div className="flex px-30 mt-[30px]  flex-col md:flex-row gap-6">
+        <div className="flex px-30 md:mt-[30px] mt-16 flex-col md:flex-row md:gap-6 gap-2">
           <div className="md:w-1/2 w-full">
             <ControlsPanel
               data={cardData}
@@ -94,10 +93,13 @@ const App: React.FC = () => {
             <CardPreview data={cardData} cardRef={cardRef} />
           </div>
         </div>
+      </div>
 
+      <div className="relative w-full h-[30%] bg-black">
+        <BlobBackground blobs={customBlobs} />
         <Footer />
       </div>
-    </div>
+    </section>
   );
 };
 

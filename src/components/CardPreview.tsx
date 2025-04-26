@@ -56,7 +56,7 @@ const CardPreview: React.FC<Props> = ({ data, cardRef }) => {
     <section className="flex flex-col mt-5 ">
       <div
         ref={cardRef}
-        className="w-md max-w-md mx-auto bg-white isolation-auto rounded-2xl shadow-xl p-6 text-center relative"
+        className="md:max-w-md md:w-md w-[350px] mx-auto bg-white isolation-auto rounded-2xl shadow-xl p-6 text-center relative"
       >
         <div className="absolute top-4 left-4">
           <div className="bg-[#2c2a59] uppercase text-white font-bold rounded-full w-6 h-6 flex items-center justify-center text-xs">
@@ -64,23 +64,23 @@ const CardPreview: React.FC<Props> = ({ data, cardRef }) => {
           </div>
         </div>
 
-        <div className="relative w-24 h-24 mx-auto mb-4">
+        <div className="relative md:w-24 w-16 md:h-24 h-16 mx-auto mb-4">
           <span className="absolute inset-0 rounded-full border-[4px] border-b-transparent border-l-transparent border-yellow-400 z-0 "></span>
 
           <img
             src={data.avatarUrl}
             alt="profile"
-            className="w-24 rounded-full p-1 border-4 border-white z-10 object-cover"
+            className="md:w-24 w-16 rounded-full p-1 border-4 border-white z-10 object-cover"
           />
         </div>
 
-        <h2 className="text-xl font-semibold text-gray-800 capitalize">
+        <h2 className="md:text-xl text-lg font-semibold text-gray-800 capitalize">
           {data.name}
         </h2>
-        <p className="text-sm text-indigo-700 mb-2 capitalize">
+        <p className="md:text-sm text-xs text-indigo-700 mb-2 capitalize">
           {data.jobTitle}
         </p>
-        <p className="text-gray-600 text-sm mb-4 capitalize">
+        <p className="text-gray-600 md:text-sm text-xs mb-4 capitalize">
           {data.description}
         </p>
 

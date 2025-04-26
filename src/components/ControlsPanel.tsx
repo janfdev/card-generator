@@ -29,32 +29,31 @@ const ControlsPanel: React.FC<Props> = ({ data, onChange, onUploadPhoto }) => {
   };
 
   return (
-    <div className="flex flex-col w-full gap-4">
-      {/* Name Input */}
-      <div className="flex flex-col gap-1">
-        <label className="text-sm font-medium text-white">Name</label>
-        <input
-          type="text"
-          className="w-full p-2 border border-white text-white rounded"
-          placeholder="Input your name"
-          value={data.name}
-          onChange={(e) => handleFieldChange("name", e.target.value)}
-        />
+    <section className="flex flex-col w-full gap-4">
+      <div className="flex md:flex-col flex-row gap-4 w-full">
+        <div className="flex flex-col gap-1">
+          <label className="text-sm font-medium text-white">Name</label>
+          <input
+            type="text"
+            className="w-full p-2 border border-white text-white rounded"
+            placeholder="Input your name"
+            value={data.name}
+            onChange={(e) => handleFieldChange("name", e.target.value)}
+          />
+        </div>
+
+        <div className="flex flex-col gap-1">
+          <label className="text-sm font-medium text-white">Job Title</label>
+          <input
+            type="text"
+            placeholder="Input your job"
+            value={data.jobTitle}
+            className="w-full p-2 border border-white text-white rounded"
+            onChange={(e) => handleFieldChange("jobTitle", e.target.value)}
+          />
+        </div>
       </div>
 
-      {/* Job Title Input */}
-      <div className="flex flex-col gap-1">
-        <label className="text-sm font-medium text-white">Job Title</label>
-        <input
-          type="text"
-          placeholder="Input your job"
-          value={data.jobTitle}
-          className="w-full p-2 border border-white text-white rounded"
-          onChange={(e) => handleFieldChange("jobTitle", e.target.value)}
-        />
-      </div>
-
-      {/* Description Input */}
       <div className="flex flex-col gap-1">
         <label className="text-sm font-medium text-white">Description</label>
         <input
@@ -73,7 +72,7 @@ const ControlsPanel: React.FC<Props> = ({ data, onChange, onUploadPhoto }) => {
         </label>
         <input
           type="file"
-          className="flex h-10 w-full rounded-md border border-input bg-white px-3 py-2 text-sm text-gray-400 file:border-0 file:bg-transparent file:text-gray-600 file:text-sm file:font-medium"
+          className="flex h-10 w-full rounded-md border border-input bg-transparent  px-3 py-2 text-sm text-gray-400 file:border-0 file:bg-transparent file:text-gray-600 file:text-sm file:font-medium"
           onChange={onUploadPhoto}
         />
       </div>
@@ -117,7 +116,7 @@ const ControlsPanel: React.FC<Props> = ({ data, onChange, onUploadPhoto }) => {
           classNamePrefix={"react-select"}
         />
       </div>
-    </div>
+    </section>
   );
 };
 
