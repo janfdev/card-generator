@@ -57,7 +57,7 @@ const ControlsPanel: React.FC<Props> = ({ data, onChange, onUploadPhoto }) => {
           onChange={onUploadPhoto}
         />
       </div>
-      <h3 className="text-lg">Tech Stack : </h3>
+      <h3 className="text-lg text-white">Tech Stack : </h3>
       <Select
         isMulti
         options={techStackOptions}
@@ -73,7 +73,7 @@ const ControlsPanel: React.FC<Props> = ({ data, onChange, onUploadPhoto }) => {
         className="mb-4 text-black"
         classNamePrefix={"react-select"}
       />
-      <h3 className="text-lg">Social Media : </h3>
+      <h3 className="text-lg text-white">Social Media : </h3>
       <Select
         isMulti
         options={socialMediaOptions}
