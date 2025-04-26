@@ -13,6 +13,8 @@ const techStackOptions = [
   { value: "Typescript", label: "Typescript" },
   { value: "Javascript", label: "Javascript" },
   { value: "Laravel", label: "Laravel" },
+  { value: "PHP", label: "PHP" },
+  { value: "NextJS", label: "NextJS" },
 ];
 
 const socialMediaOptions = [
