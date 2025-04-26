@@ -4,7 +4,6 @@ import ControlsPanel from "./components/ControlsPanel";
 import { CardData } from "./types/types";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
-import { BlobBackgroundDemo } from "./components/BlobBackgroundDemo";
 import { BlobBackground } from "@/components/ui/blob-background";
 
 const customBlobs = [
@@ -74,30 +73,40 @@ const App: React.FC = () => {
 
   <></>;
   return (
-    <div className="relative z-30 min-h-screen w-full overflow-hidden rounded-lg border border-border/40 bg-black backdrop-blur-xs text-white">
+    <div className="relative h-screen w-full bg-black">
       <BlobBackground blobs={customBlobs} />
-
-      <div className="relative z-40 md:px-20 px-5">
-        <Navbar />
-      </div>
-
-      <main className="relative z-40 container mx-auto px-4 pt-32 pb-16">
-        <div className="flex flex-col md:flex-row gap-6 ">
-          <div className="md:w-1/2 w-full">
-            <ControlsPanel
-              data={cardData}
-              onChange={setCardData}
-              onUploadPhoto={handleFileChange}
-            />
-          </div>
-
-          <div className="md:w-1/2 w-full flex justify-center items-start">
-            <CardPreview data={cardData} cardRef={cardRef} />
-          </div>
+      {/* <div className="absolute inset-0 z-10 flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="mb-4 bg-linear-to-r from-purple-500 via-pink-500 to-blue-500 bg-clip-text text-4xl font-bold text-transparent">
+            Organic Design
+          </h1>
+          <p className="text-lg text-white/80">
+            Attractive fluid shapes for modern interfaces
+          </p>
         </div>
-      </main>
+      </div> */}
 
-      <div className="relative z-40 mt-24">
+      <div className="absolute inset-0 z-10 flex flex-col w-full justify-center">
+        <div className="sticky top-0 z-10 md:px-[500px] px-5">
+          <Navbar />
+        </div>
+
+        <main className="container mx-auto p-20 relative z-10">
+          <div className="flex flex-col md:flex-row gap-6">
+            <div className="md:w-1/2 w-full">
+              <ControlsPanel
+                data={cardData}
+                onChange={setCardData}
+                onUploadPhoto={handleFileChange}
+              />
+            </div>
+
+            <div className="md:w-1/2 w-full flex justify-center items-start">
+              <CardPreview data={cardData} cardRef={cardRef} />
+            </div>
+          </div>
+        </main>
+
         <Footer />
       </div>
     </div>

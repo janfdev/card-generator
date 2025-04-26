@@ -27,10 +27,10 @@ const ControlsPanel: React.FC<Props> = ({ data, onChange, onUploadPhoto }) => {
   };
 
   return (
-    <div className="flex flex-col w-full gap-1 text-white">
+    <div className="flex flex-col w-full gap-1 ">
       <input
         type="text"
-        className="w-full mb-2 p-2 border rounded"
+        className="w-full mb-2 p-2 border text-white border-white rounded"
         placeholder="Input your name"
         onChange={(e) => handleFieldChange("name", e.target.value)}
       />
@@ -38,12 +38,12 @@ const ControlsPanel: React.FC<Props> = ({ data, onChange, onUploadPhoto }) => {
         type="text"
         placeholder="Input your job"
         value={data.jobTitle}
-        className="w-full mb-2 p-2 border rounded"
+        className="w-full mb-2 text-white p-2 border border-white rounded"
         onChange={(e) => handleFieldChange("jobTitle", e.target.value)}
       />
       <input
         type="text"
-        className="w-full mb-2 p-2 border rounded"
+        className="w-full mb-2 text-white p-2 border rounded"
         placeholder="description"
         onChange={(e) => handleFieldChange("description", e.target.value)}
       />
@@ -53,7 +53,7 @@ const ControlsPanel: React.FC<Props> = ({ data, onChange, onUploadPhoto }) => {
         </label>
         <input
           type="file"
-          className="flex h-10 w-full rounded-md border border-input bg-white px-3 py-2 text-sm text-gray-400 file:border-0 file:bg-transparent file:text-gray-600 file:text-sm file:font-medium"
+          className="flex h-10 w-full rounded-md border  border-input bg-white px-3 py-2 text-sm text-gray-400 file:border-0 file:bg-transparent file:text-gray-600 file:text-sm file:font-medium"
           onChange={onUploadPhoto}
         />
       </div>
@@ -70,7 +70,7 @@ const ControlsPanel: React.FC<Props> = ({ data, onChange, onUploadPhoto }) => {
             selected.map((item) => item.value as TechStack)
           );
         }}
-        className="mb-4"
+        className="mb-4 text-black"
         classNamePrefix={"react-select"}
       />
       <h3 className="text-lg">Social Media : </h3>
@@ -86,6 +86,8 @@ const ControlsPanel: React.FC<Props> = ({ data, onChange, onUploadPhoto }) => {
             selected.map((item) => item.value as SocialMedia)
           );
         }}
+        className="mb-4 text-black"
+        classNamePrefix={"react-select"}
       />
     </div>
   );
