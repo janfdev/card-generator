@@ -1,8 +1,8 @@
 import React from "react";
 import { CardData } from "../types/types";
-import { FaPython, FaInstagram, FaLaravel } from "react-icons/fa";
+import { FaPython, FaInstagram, FaLaravel, FaPhp } from "react-icons/fa";
 import { BiLogoTypescript } from "react-icons/bi";
-import { RiJavascriptFill } from "react-icons/ri";
+import { RiJavascriptFill, RiNextjsFill } from "react-icons/ri";
 import { RxLinkedinLogo } from "react-icons/rx";
 import { VscGithubInverted } from "react-icons/vsc";
 import { toPng } from "html-to-image";
@@ -17,6 +17,8 @@ const iconMap = {
   Typescript: <BiLogoTypescript className="text-[#3178c6] text-xl" />,
   Javascript: <RiJavascriptFill className="text-[#f0d73a] text-xl" />,
   Laravel: <FaLaravel className="text-red-400" />,
+  PHP: <FaPhp className="text-purple-500" />,
+  NextJS: <RiNextjsFill className="text-blue-500" />,
   Linkedin: <RxLinkedinLogo className="text-blue-500 text-xl" />,
   Instagram: <FaInstagram className="text-xl" />,
   Github: <VscGithubInverted className="text-xl text-black" />,

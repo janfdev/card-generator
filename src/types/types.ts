@@ -1,4 +1,4 @@
-export type TechStack = "Python" | "Javascript" | "Typescript" | "Laravel";
+export type TechStack = "Python" | "Javascript" | "Typescript" | "Laravel" | "PHP" | "NextJS";
 export type SocialMedia = "Linkedin" | "Instagram" | "Github";
 
 export interface CardData {
