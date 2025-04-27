@@ -6,7 +6,6 @@ import { RiJavascriptFill, RiNextjsFill } from "react-icons/ri";
 import { RxLinkedinLogo } from "react-icons/rx";
 import { VscGithubInverted } from "react-icons/vsc";
 import { toPng } from "html-to-image";
-import Swal from "sweetalert2";
 import { toast, ToastContainer } from "react-toastify";
 
 interface Props {
@@ -49,7 +48,7 @@ const CardPreview: React.FC<Props> = ({ data, cardRef }) => {
   };
 
   const handleToastPromise = async () => {
-    await toast.promise(handleExportCard, {
+    await toast.promise(handleExportCard(), {
       pending: "Exporting card...",
       success: "Card exported successfully 👍",
       error: "Export failed",
