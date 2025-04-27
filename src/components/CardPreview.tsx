@@ -7,6 +7,7 @@ import { RxLinkedinLogo } from "react-icons/rx";
 import { VscGithubInverted } from "react-icons/vsc";
 import { toPng } from "html-to-image";
 import Swal from "sweetalert2";
+import { toast, ToastContainer } from "react-toastify";
 
 interface Props {
   data: CardData;
@@ -31,13 +32,13 @@ const CardPreview: React.FC<Props> = ({ data, cardRef }) => {
     const node = cardRef.current;
 
     try {
-
       const dataUrl = await toPng(node, {
         cacheBust: true,
         backgroundColor: "#ffffff",
         width: node.offsetWidth,
         height: node.offsetHeight,
       });
+
       const link = document.createElement("a");
       link.download = "profile-card.png";
       link.href = dataUrl;
@@ -45,6 +46,14 @@ const CardPreview: React.FC<Props> = ({ data, cardRef }) => {
     } catch (error) {
       console.error("Export failed: ", error);
     }
+  };
+
+  const handleToastPromise = async () => {
+    await toast.promise(handleExportCard, {
+      pending: "Exporting card...",
+      success: "Card exported successfully 👍",
+      error: "Export failed",
+    });
   };
 
   const getInitials = (name: string) => {
@@ -110,11 +119,13 @@ const CardPreview: React.FC<Props> = ({ data, cardRef }) => {
         </div>
       </div>
       <button
-        onClick={handleExportCard}
+        onClick={handleToastPromise}
         className="mt-4 px-4 py-3 cursor-pointer bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white rounded-md"
       >
         Export as Image
       </button>
+      {/* <button onClick={notify}>Notify</button> */}
+      <ToastContainer />
     </section>
   );
 };
