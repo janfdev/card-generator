@@ -6,6 +6,7 @@ import { RiJavascriptFill, RiNextjsFill } from "react-icons/ri";
 import { RxLinkedinLogo } from "react-icons/rx";
 import { VscGithubInverted } from "react-icons/vsc";
 import { toPng } from "html-to-image";
+import Swal from "sweetalert2";
 
 interface Props {
   data: CardData;
@@ -30,6 +31,7 @@ const CardPreview: React.FC<Props> = ({ data, cardRef }) => {
     const node = cardRef.current;
 
     try {
+
       const dataUrl = await toPng(node, {
         cacheBust: true,
         backgroundColor: "#ffffff",
