@@ -55,6 +55,21 @@ const CardPreview: React.FC<Props> = ({ data, cardRef }) => {
     });
   };
 
+  const resolveAfter3Sec = new Promise((resolve) => setTimeout(resolve, 3000));
+  toast.promise(resolveAfter3Sec, {
+    pending: "Promise is pending",
+    success: "Promise resolved 👌",
+    error: "Promise rejected 🤯",
+  });
+
+  const functionThatReturnPromise = () =>
+    new Promise((resolve) => setTimeout(resolve, 3000));
+  toast.promise(functionThatReturnPromise, {
+    pending: "Promise is pending",
+    success: "Promise resolved 👌",
+    error: "Promise rejected 🤯",
+  });
+
   const getInitials = (name: string) => {
     return name
       .split(" ")
@@ -62,6 +77,7 @@ const CardPreview: React.FC<Props> = ({ data, cardRef }) => {
       .map((n) => n[0])
       .join("");
   };
+  
   return (
     <section className="flex flex-col mt-5 ">
       <div
@@ -123,7 +139,9 @@ const CardPreview: React.FC<Props> = ({ data, cardRef }) => {
       >
         Export as Image
       </button>
-      {/* <button onClick={notify}>Notify</button> */}
+      <button onClick={functionThatReturnPromise} className="text-white ">
+        Notify
+      </button>
       <ToastContainer />
     </section>
   );

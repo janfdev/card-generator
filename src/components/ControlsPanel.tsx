@@ -14,17 +14,17 @@ const techStackOptions = [
   { value: "Javascript", label: "Javascript" },
   { value: "Laravel", label: "Laravel" },
   { value: "PHP", label: "PHP" },
-  { value: "NextJS", label: "NextJS" },
+  { value: "NextJS", label: "NextJS" }
 ];
 
 const socialMediaOptions = [
   { value: "Linkedin", label: "Linkedin" },
   { value: "Instagram", label: "Instagram" },
-  { value: "Github", label: "Github" },
+  { value: "Github", label: "Github" }
 ];
 
 const ControlsPanel: React.FC<Props> = ({ data, onChange, onUploadPhoto }) => {
-  const handleFieldChange = (field: keyof CardData, value: any) => {
+  const handleFieldChange = (field: keyof CardData, value: unknown) => {
     onChange({ ...data, [field]: value });
   };
 
