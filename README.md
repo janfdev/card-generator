@@ -1,7 +1,3 @@
-Berikut versi yang lebih rapi dan profesional dari README kamu:
-
----
-
 # 💳 Card Profile Generator
 
 Sebuah aplikasi web interaktif untuk membuat dan mengunduh kartu profil custom, lengkap dengan nama, pekerjaan, tech stack, media sosial, dan tampilan visual yang menarik.
