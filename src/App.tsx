@@ -57,18 +57,23 @@ const App: React.FC = () => {
     techStack: [],
     socialMedia: [],
   });
+  const [error, setError] = useState("");
 
   const cardRef = useRef<HTMLDivElement>(null!);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    if (!file) return;
 
     const reader = new FileReader();
     reader.onload = () => {
       setCardData({ ...cardData, avatarUrl: reader.result as string });
     };
-    reader.readAsDataURL(file);
+    reader.readAsDataURL(file!);
+
+    if (!file) {
+      setError("Please select file");
+    }
+    return;
   };
 
   return (
@@ -87,6 +92,7 @@ const App: React.FC = () => {
               onChange={setCardData}
               onUploadPhoto={handleFileChange}
             />
+            {error && <p className="text-red-500">{error}</p>}
           </div>
 
           <div className="md:w-1/2 w-full flex justify-center items-start">
