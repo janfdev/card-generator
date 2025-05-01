@@ -14,13 +14,13 @@ const techStackOptions = [
   { value: "Javascript", label: "Javascript" },
   { value: "Laravel", label: "Laravel" },
   { value: "PHP", label: "PHP" },
-  { value: "NextJS", label: "NextJS" }
+  { value: "NextJS", label: "NextJS" },
 ];
 
 const socialMediaOptions = [
   { value: "Linkedin", label: "Linkedin" },
   { value: "Instagram", label: "Instagram" },
-  { value: "Github", label: "Github" }
+  { value: "Github", label: "Github" },
 ];
 
 const ControlsPanel: React.FC<Props> = ({ data, onChange, onUploadPhoto }) => {
@@ -30,6 +30,9 @@ const ControlsPanel: React.FC<Props> = ({ data, onChange, onUploadPhoto }) => {
 
   return (
     <section className="flex flex-col w-full gap-4">
+      <span className="bg-indigo-300 text-indigo-800 md:text-lg text-sm p-2 rounded-md md:w-[420px] w-[300px]">
+        Please choose picture before export image !
+      </span>
       <div className="flex md:flex-col flex-row gap-4 w-full">
         <div className="flex flex-col gap-1">
           <label className="text-sm font-medium text-white">Name</label>
